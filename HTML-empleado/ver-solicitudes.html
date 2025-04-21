@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Mis Solicitudes de Vacaciones</title>
+  <link rel="stylesheet" href="../css/estilos.css" />
+</head>
+<body>
+  <div class="dashboard-container">
+    <div class="logo-contenedor">
+      <img src="../assets/logo.png" alt="Logo" class="logo" />
+      <h2 class="titulo-app">Historial de Solicitudes</h2>
+    </div>
+
+    <div class="tabla-container">
+      <table class="tabla-solicitudes">
+        <thead>
+            <tr>
+              <th>Fecha Inicio</th>
+              <th>Fecha Fin</th>
+              <th>Fecha Regreso</th>
+              <th>Estado</th>
+              <th>Enviada el</th>
+              <th>Acciones</th>
+            </tr>
+          </thead>          
+        <tbody id="tablaSolicitudes">
+          <!-- Aquí se insertarán las filas dinámicamente -->
+        </tbody>
+      </table>
+    </div>
+
+    <div style="margin-top: 30px;">
+      <a href="empleado-dashboard.html">
+        <button class="cerrar-sesion">⬅ Volver al panel</button>
+      </a>
+    </div>
+  </div>
+
+  <script src="../js-empleado/ver-solicitudes.js"></script>
+</body>
+</html>

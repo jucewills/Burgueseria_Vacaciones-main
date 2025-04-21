@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard Empleado - La Burguesería</title>
+  <link rel="stylesheet" href="../css/estilos.css">
+</head>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+<body>
+  <div class="dashboard-container">
+    <div class="logo-contenedor">
+      <img src="../assets/logo.png" alt="Logo" class="logo">
+      <h2 class="titulo-app">Panel del Empleado</h2>
+    </div>
+
+    <div id="infoEmpleado" class="seccion">
+      <h3>Información Personal</h3>
+      <p><strong>Nombre:</strong> <span id="nombre"></span></p>
+      <p><strong>Documento:</strong> <span id="documento"></span></p>
+      <p><strong>Correo:</strong> <span id="correo"></span></p>
+      <p><strong>Cargo:</strong> <span id="cargo"></span></p>
+      <p><strong>Salario:</strong> <span id="salario"></span></p>
+      <p><strong>Fecha de Ingreso:</strong> <span id="fechaIngreso"></span></p>
+      <p><strong>Tipo de Contrato:</strong> <span id="tipoContrato"></span></p>
+      <p><strong>Fecha de Finalización:</strong> <span id="fechaFinContrato"></span></p>
+    </div>
+
+    <div class="seccion">
+      <h3>Días de Vacaciones Disponibles: <span id="diasDisponibles"></span></h3>
+    </div>
+
+    <div class="botones-admin">
+      <a href="crear-solicitud.html"><button>📝 Crear Solicitud</button></a>
+      <a href="ver-solicitudes.html"><button>📋 Ver Mis Solicitudes</button></a>
+      <a href="#" onclick="generarCertificadoPDF()"><button>📄 Generar Certificado Laboral</button></a>      
+      <button class="cerrar-sesion" onclick="cerrarSesion()">🚪 Cerrar Sesión</button>
+    </div>
+
+  </div>
+
+  <script src="../js-empleado/empleado-dashboard.js"></script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Crear Solicitud de Vacaciones</title>
+  <link rel="stylesheet" href="../css/estilos.css">
+</head>
+<body>
+  <div class="dashboard-container">
+    <div class="logo-contenedor">
+      <img src="../assets/logo.png" alt="Logo" class="logo">
+      <h2 class="titulo-app">Solicitud de Vacaciones</h2>
+    </div>
+
+    <form id="formSolicitud">
+      <label for="fechaInicio">Selecciona la fecha de inicio:</label>
+      <input type="date" id="fechaInicio" required />
+
+      <p><strong>Fecha de finalización:</strong> <span id="fechaFin"></span></p>
+      <p><strong>Fecha de regreso al trabajo:</strong> <span id="fechaRegreso"></span></p>
+
+      <button type="submit">📤 Enviar Solicitud</button>
+      <p id="mensajeError" class="error"></p>
+    </form>
+
+    <div style="margin-top: 30px;">
+      <a href="empleado-dashboard.html">
+        <button class="cerrar-sesion">⬅ Volver al panel</button>
+      </a>
+    </div>
+  </div>
+
+  <script src="../js-empleado/crear-solicitud.js"></script>
+</body>
+</html>

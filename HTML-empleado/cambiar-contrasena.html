@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Cambiar Contraseña - La Burguesería</title>
+  <link rel="stylesheet" href="../css/estilos.css" />
+</head>
+<body>
+  <div class="login-container">
+    <img src="../assets/logo.png" alt="Logo La Burguesería" class="logo" />
+    <h2>Establecer Nueva Contraseña</h2>
+    
+    <form id="formCambioContrasena">
+      <label for="nuevaContrasena">Nueva contraseña:</label>
+      <input type="password" id="nuevaContrasena" placeholder="**********" required />
+      
+      <label for="confirmarContrasena">Confirmar contraseña:</label>
+      <input type="password" id="confirmarContrasena" placeholder="**********" required />
+      
+      <button type="submit">Guardar contraseña</button>
+      <p id="mensajeError" class="error"></p>
+    </form>
+  </div>
+
+  <script src="../js-empleado/cambiar-contrasena.js"></script>
+</body>
+</html>

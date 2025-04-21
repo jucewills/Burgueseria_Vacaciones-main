@@ -1,0 +1,287 @@
+/* ======== Estilos Globales ======== */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #2c2c2c;
+  color: #f5f5f5;
+  line-height: 1.6;
+}
+
+h2, h3 {
+  text-align: center;
+  color: #e67e22;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-weight: 700;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+a {
+  text-decoration: none;
+  color: #f39c12;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* ======== Contenedores ======== */
+.login-container {
+  width: 90%;
+  max-width: 400px;
+  margin: 60px auto;
+  padding: 40px 30px;
+  background-color: #3b3b3b;
+  border-radius: 20px;
+  box-shadow: 0 4px 10px rgba(255, 253, 253, 0.2);
+  text-align: center;
+}
+
+.dashboard-container {
+  max-width: 600px;
+  width: 100%;
+  margin: 60px auto;
+  padding: 30px;
+  background-color: #3b3b3b;
+  border-radius: 20px;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+/* ======== Formularios ======== */
+form label {
+  display: block;
+  text-align: left;
+  margin-bottom: 10px;
+  font-weight: 400;
+  font-size: 0.95rem;
+  color: #f1f1f1;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+select,
+textarea {
+  width: 100%;
+  padding: 10px 12px;
+  margin-bottom: 18px;
+  border: 1px solid #666;
+  border-radius: 10px;
+  font-size: 0.95rem;
+  background-color: #2c2c2c;
+  color: #f5f5f5;
+  transition: border-color 0.3s ease;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  border-color: #e67e22;
+  outline: none;
+}
+
+/* ======== Botones ======== */
+button {
+  padding: 12px 24px;
+  background-color: #d35400;
+  color: white;
+  border: none;
+  border-radius: 50px;
+  font-size: 16px;
+  cursor: pointer;
+  font-weight: bold;
+  letter-spacing: 0.5px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #e67e22;
+}
+
+.btn-ingresar {
+  width: 100%;
+  background-color: #e67e22;
+  margin-top: 5px;
+}
+
+.btn-ingresar:hover {
+  background-color: #d35400;
+}
+
+table button {
+  margin-right: 5px;
+  background-color: #f39c12;
+}
+
+table button:hover {
+  background-color: #e67e22;
+}
+
+.boton-admin {
+  background-color: #27ae60;
+  color: white;
+  padding: 12px 24px;
+  text-align: center;
+  border-radius: 12px;
+  font-size: 16px;
+  width: 250px;
+  transition: background-color 0.3s ease;
+}
+
+.boton-admin:hover {
+  background-color: #2ecc71;
+}
+
+.cerrar-sesion {
+  background-color: #c0392b;
+}
+
+.cerrar-sesion:hover {
+  background-color: #e74c3c;
+}
+
+/* ======== Tablas ======== */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+  overflow-x: auto;
+  display: block;
+}
+
+th, td {
+  padding: 5px;
+  text-align: left;
+  border-bottom: 1px solid #666;
+}
+
+th {
+  background-color: #444;
+}
+
+tr:hover {
+  background-color: #555;
+}
+
+/* ======== Secciones y Menús ======== */
+nav.menu {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+  margin: 20px 0;
+}
+
+nav.menu button {
+  background-color: #16a085;
+}
+
+nav.menu button:hover {
+  background-color: #1abc9c;
+}
+
+.seccion {
+  margin-top: 20px;
+  text-align: left;
+}
+
+/* ======== Mensajes y errores ======== */
+.error {
+  color: #e74c3c;
+  font-size: 14px;
+  margin-top: 10px;
+}
+
+.olvide {
+  margin-top: 15px;
+}
+
+.olvide a {
+  text-decoration: none;
+  color: #f1c40f;
+  font-size: 0.9rem;
+}
+
+.olvide a:hover {
+  text-decoration: underline;
+}
+
+/* ======== Filtros y contadores ======== */
+.filtros {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+  gap: 10px;
+}
+
+.filtros select,
+.filtros button {
+  padding: 8px 12px;
+  font-size: 14px;
+  background-color: #3b3b3b;
+  color: #fff;
+  border: 1px solid #777;
+  border-radius: 8px;
+}
+
+.contadores {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+  margin-top: 10px;
+}
+
+.contadores span {
+  background-color: #555;
+  padding: 6px 10px;
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+/* ======== Encabezado y Logo ======== */
+.encabezado {
+  background-color: #1e1e1e;
+  padding: 10px 0;
+  border-bottom: 5px solid #e67e22;
+  text-align: center;
+}
+
+.logo-contenedor {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+.logo {
+  max-width: 120px;
+  height: auto;
+  display: block;
+  margin: 0 auto 10px;
+  border-radius: 50%;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+}
+
+.titulo-app {
+  font-size: 24px;
+  font-weight: bold;
+  margin: 0;
+  color: #fff;
+  text-transform: uppercase;
+}
+
+/* ======== Botones Admin Extra ======== */
+.botones-admin {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+  margin-top: 20px;
+}

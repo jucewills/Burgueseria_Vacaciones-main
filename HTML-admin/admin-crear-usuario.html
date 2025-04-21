@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Crear Usuario - Admin</title>
+  <link rel="stylesheet" href="../css/estilos.css" />
+</head>
+<body>
+  <div class="dashboard-container">
+    <div class="logo-contenedor">
+      <img src="../assets/logo.png" alt="Logo" class="logo" />
+      <h2 class="titulo-app">Crear Nuevo Usuario</h2>
+    </div>
+
+    <form id="formCrearUsuario">
+      <label for="nombre">Nombre completo:</label>
+      <input type="text" id="nombre" required />
+
+      <label for="documento">Número de documento:</label>
+      <input type="text" id="documento" required />
+
+      <label for="usuario">Nombre de usuario:</label>
+      <input type="text" id="usuario" required />
+
+      <label for="correo">Correo electrónico:</label>
+      <input type="email" id="correo" required />
+
+      <label for="cargo">Cargo:</label>
+      <select id="cargo" required>
+        <option value="">Seleccione...</option>
+        <option value="Chef">Chef</option>
+        <option value="Mesero">Mesero</option>
+        <option value="Administrador">Administrador</option>
+        <option value="Domiciliario">Domiciliario</option>
+        <option value="Cajero">Cajero</option>
+      </select>
+
+      <label for="salario">Salario (COP):</label>
+      <input type="number" id="salario" min="1000000" placeholder="$2.500.000" required />
+
+      <label for="fechaIngreso">Fecha de ingreso:</label>
+      <input type="date" id="fechaIngreso" required />
+
+      <label for="tipoContrato">Tipo de contrato:</label>
+      <select id="tipoContrato" required>
+        <option value="">Seleccione...</option>
+        <option value="Definido">Definido</option>
+        <option value="Indefinido">Indefinido</option>
+      </select>
+
+      <div id="campoFinContrato" style="display: none;">
+        <label for="fechaFinContrato">Fecha de finalización del contrato:</label>
+        <input type="date" id="fechaFinContrato" />
+      </div>
+
+      <label for="rol">Rol del sistema:</label>
+      <select id="rol" required>
+        <option value="empleado">Empleado</option>
+        <option value="admin">Administrador</option>
+      </select>
+
+      <button type="submit">💾 Crear Usuario</button>
+      <p id="mensajeError" class="error"></p>
+    </form>
+
+    <div style="margin-top: 30px;">
+      <a href="admin-ver-usuarios.html">
+        <button class="cerrar-sesion">⬅ Volver</button>
+      </a>
+    </div>
+  </div>
+
+  <script src="../js-admin/admin-crear-usuario.js"></script>
+</body>
+</html>

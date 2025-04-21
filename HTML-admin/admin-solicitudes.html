@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Solicitudes de Vacaciones</title>
+  <link rel="stylesheet" href="../css/estilos.css" />
+</head>
+<body>
+  <div class="dashboard-container">
+    <div class="logo-contenedor">
+      <img src="../assets/logo.png" alt="Logo" class="logo" />
+      <h2 class="titulo-app">Solicitudes de Vacaciones</h2>
+    </div>
+
+    <!-- Filtro de estado -->
+    <div class="filtros">
+      <label for="filtroEstado">Filtrar por estado:</label>
+      <select id="filtroEstado">
+        <option value="Todos">Todos</option>
+        <option value="Pendiente">Pendiente</option>
+        <option value="Aprobada">Aprobada</option>
+        <option value="Rechazada">Rechazada</option>
+        <option value="Cancelada">Cancelada</option>
+      </select>
+    </div>
+
+    <!-- Tabla de solicitudes -->
+    <table>
+      <thead>
+        <tr>
+          <th>Empleado</th>
+          <th>Inicio</th>
+          <th>Fin</th>
+          <th>Regreso</th>
+          <th>Estado</th>
+          <th>Comentario</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody id="tablaSolicitudesAdmin">
+        <!-- Se insertarán dinámicamente -->
+      </tbody>
+    </table>
+
+    <div style="margin-top: 30px;">
+      <a href="admin-dashboard.html">
+        <button class="cerrar-sesion">⬅ Volver al panel</button>
+      </a>
+    </div>
+  </div>
+
+  <script src="../js-admin/admin-solicitudes.js"></script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Ingreso al Sistema - La Burguesería</title>
+  <link rel="stylesheet" href="css/estilos.css" />
+</head>
+<body>
+  <div class="login-container">
+    <img src="assets/logo.png" alt="Logo La Burguesería" class="logo" />
+    <h2>Ingreso al Sistema de Vacaciones</h2>
+    
+    <form id="loginForm">
+      <input type="text" id="usuario" placeholder="Usuario o Documento" required />
+      <input type="password" id="contrasena" placeholder="Contraseña" required />
+      
+      <button type="submit">Iniciar sesión</button>
+
+      <p id="errorMensaje" class="error"></p>
+      
+      <p class="olvide">
+        <a href="HTML-empleado/restablecer-contrasena.html">¿Olvidaste tu contraseña?</a>
+      </p>
+    </form>
+
+    <!-- Botón de prueba para restablecer usuarios -->
+    <button id="btnResetUsuarios" style="margin-top: 20px; background-color: crimson; color: white;">
+      🔁 Restablecer usuarios de prueba
+    </button>
+  </div>
+
+  <script src="js-empleado/login.js"></script>
+</body>
+</html>

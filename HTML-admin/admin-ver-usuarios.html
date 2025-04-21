@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Usuarios Registrados - Admin</title>
+  <link rel="stylesheet" href="../css/estilos.css" />
+</head>
+<body>
+  <div class="dashboard-container">
+    <div class="logo-contenedor">
+      <img src="../assets/logo.png" alt="Logo" class="logo" />
+      <h2 class="titulo-app">Gestión de Usuarios</h2>
+    </div>
+
+    <div class="tabla-container">
+      <table class="tabla-solicitudes">
+        <thead>
+          <tr>
+            <th>Usuario</th>
+            <th>Nombre</th>
+            <th>Rol</th>
+            <th>Estado</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
+        <tbody id="tablaUsuarios">
+          <!-- Usuarios dinámicos aquí -->
+        </tbody>
+      </table>
+    </div>
+
+    <div class="botones-admin">
+      <a href="admin-crear-usuario.html"><button>➕ Crear Usuario</button></a>
+      <a href="admin-dashboard.html"><button>⬅ Volver al panel</button></a>
+    </div>
+  </div>
+
+  <script src="../js-admin/admin-ver-usuarios.js"></script>
+</body>
+</html>
