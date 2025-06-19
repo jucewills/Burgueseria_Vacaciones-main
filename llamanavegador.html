@@ -1,0 +1,25 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Conexión con BD</title>
+</head>
+<body>
+  <h1>Usuarios</h1>
+  <ul id="usuarios"></ul>
+
+  <script>
+    fetch('http://localhost:3000/api/usuarios')
+      .then(response => response.json())
+      .then(data => {
+        const lista = document.getElementById('usuarios');
+        data.forEach(usuario => {
+          const li = document.createElement('li');
+          li.textContent = usuario.nombre; // suponiendo que hay un campo "nombre"
+          lista.appendChild(li);
+        });
+      })
+      .catch(err => console.error('Error:', err));
+  </script>
+</body>
+</html>
