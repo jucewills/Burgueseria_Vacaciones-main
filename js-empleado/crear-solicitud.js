@@ -34,33 +34,37 @@ document.addEventListener('DOMContentLoaded', () => {
         return;
       }
   
-      // Aquí puedes guardar los datos en localStorage o enviarlos a un servidor
-      const usuario = JSON.parse(localStorage.getItem('usuarioActivo'));
+      // Enviar a servidor real usando fetch
+      fetch('https://vacation-tracker-juliocesarwil.replit.app/solicitudes', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          usuario: usuario.usuario,
+          fecha_inicio: fechaInicio,
+          dias_solicitados: 5,
+          estado: 'Pendiente'
+        })
+      })
+      .then(response => {
+        if (!response.ok) {
+          throw new Error('No se pudo guardar la solicitud.');
+        }
+        return response.json();
+      })
+      .then(data => {
+        alert('✅ Solicitud enviada exitosamente al servidor.');
+        formSolicitud.reset();
+        fechaFinSpan.textContent = '';
+        fechaRegresoSpan.textContent = '';
+        mensajeError.textContent = '';
+      })
+      .catch(error => {
+        console.error(error);
+        mensajeError.textContent = '❌ Ocurrió un error al enviar la solicitud.';
+      });
 
-      const solicitud = {
-        id: Date.now(),
-        usuario: usuario.usuario,
-        nombre: usuario.nombre,
-        fechaInicio,
-        fechaFin,
-        fechaRegreso,
-        estado: 'Pendiente',
-        enviada: new Date().toISOString()
-      };
-      
-  
-      // Guardar en localStorage (simulación)
-      const solicitudes = JSON.parse(localStorage.getItem('solicitudesVacaciones')) || [];
-      solicitudes.push(solicitud);
-      localStorage.setItem('solicitudesVacaciones', JSON.stringify(solicitudes));
-  
-      // Mostrar mensaje de éxito o redireccionar
-      alert('✅ Solicitud enviada exitosamente.');
-      formSolicitud.reset();
-      fechaFinSpan.textContent = '';
-      fechaRegresoSpan.textContent = '';
-      mensajeError.textContent = '';
-    });
   
     function sumarDiasHabiles(fecha, dias) {
       let resultado = new Date(fecha);
