@@ -24,47 +24,51 @@ document.addEventListener('DOMContentLoaded', () => {
   
     formSolicitud.addEventListener('submit', (e) => {
       e.preventDefault();
-  
+
       const fechaInicio = fechaInicioInput.value;
       const fechaFin = fechaFinSpan.textContent;
       const fechaRegreso = fechaRegresoSpan.textContent;
-  
+
       if (!fechaInicio || !fechaFin || !fechaRegreso) {
         mensajeError.textContent = 'Por favor, selecciona una fecha válida de inicio.';
         return;
       }
-  
-      // Enviar a servidor real usando fetch
+    
+      const usuario = JSON.parse(localStorage.getItem('usuarioActivo'));
+    
+      // Construimos el objeto completo
+      const solicitud = {
+        usuario: usuario.usuario,
+        nombre: usuario.nombre,
+        fecha_inicio: fechaInicio,
+        fecha_fin: fechaFin,
+        fecha_regreso: fechaRegreso,
+        estado: 'Pendiente'
+      };
+    
       fetch('https://vacation-tracker-juliocesarwil.replit.app/solicitudes', {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-          usuario: usuario.usuario,
-          fecha_inicio: fechaInicio,
-          dias_solicitados: 5,
-          estado: 'Pendiente'
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(solicitud)
+      })
+        .then(response => {
+          if (!response.ok) {
+            throw new Error('No se pudo guardar la solicitud.');
+          }
+          return response.json();
         })
-      })
-      .then(response => {
-        if (!response.ok) {
-          throw new Error('No se pudo guardar la solicitud.');
-        }
-        return response.json();
-      })
-      .then(data => {
-        alert('✅ Solicitud enviada exitosamente al servidor.');
-        formSolicitud.reset();
-        fechaFinSpan.textContent = '';
-        fechaRegresoSpan.textContent = '';
-        mensajeError.textContent = '';
-      })
-      .catch(error => {
-        console.error(error);
-        mensajeError.textContent = '❌ Ocurrió un error al enviar la solicitud.';
-      });
-
+        .then(data => {
+          alert('✅ Solicitud enviada exitosamente al servidor.');
+          formSolicitud.reset();
+          fechaFinSpan.textContent = '';
+          fechaRegresoSpan.textContent = '';
+          mensajeError.textContent = '';
+        })
+        .catch(error => {
+          console.error(error);
+          mensajeError.textContent = '❌ Ocurrió un error al enviar la solicitud.';
+        });
+    });
   
     function sumarDiasHabiles(fecha, dias) {
       let resultado = new Date(fecha);
