@@ -45,7 +45,12 @@ document.addEventListener("DOMContentLoaded", async () => {
         <td>—</td>
         <td>${s.estado}</td>
         <td>${s.comentario || "—"}</td>
-        <td>—</td>
+        <td>
+          ${s.estado === "Pendiente" ? `
+            <button onclick="aprobar(${s.id})">✅ Aprobar</button>
+            <button onclick="rechazar(${s.id})">❌ Rechazar</button>
+          ` : "—"}
+        </td>
       `;
 
       tabla.appendChild(fila);
@@ -55,10 +60,38 @@ document.addEventListener("DOMContentLoaded", async () => {
   filtro.addEventListener("change", cargarSolicitudes);
 
   function formatearFecha(fecha) {
+    if (!fecha) return "—";
     const d = new Date(fecha);
     return d.toLocaleDateString("es-CO");
   }
 
-  // Inicializar
+  window.aprobar = async function (id) {
+    const comentario = prompt("Agrega un comentario (opcional):") || "";
+    await actualizarEstadoSolicitud(id, "Aprobada", comentario);
+  };
+
+  window.rechazar = async function (id) {
+    const comentario = prompt("¿Por qué se rechaza la solicitud?") || "";
+    await actualizarEstadoSolicitud(id, "Rechazada", comentario);
+  };
+
+  async function actualizarEstadoSolicitud(id, nuevoEstado, comentario) {
+    try {
+      const response = await fetch(`https://vacation-tracker-juliocesarwil.replit.app/solicitudes/${id}`, {
+        method: 'PATCH',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ estado: nuevoEstado, comentario })
+      });
+
+      if (!response.ok) throw new Error('Error al actualizar la solicitud');
+      alert(`✅ Solicitud ${nuevoEstado.toLowerCase()} correctamente.`);
+      await cargarSolicitudesDesdeAPI(); // Recargar tabla con los cambios
+    } catch (error) {
+      console.error(error);
+      alert('❌ No se pudo actualizar la solicitud.');
+    }
+  }
+
+  // Inicializar al cargar la página
   await cargarSolicitudesDesdeAPI();
 });
