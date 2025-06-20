@@ -42,11 +42,25 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // Por ahora solo muestra un mensaje: tu backend aún no permite cambiar el estado.
   window.toggleEstado = async (id, estadoActual) => {
-    alert(`Aquí se enviaría una solicitud para cambiar el estado del usuario con ID ${id} a ${!estadoActual ? "Activo" : "Inactivo"}`);
-    // ⚠️ Tu backend aún no tiene un endpoint PATCH /api/users/:id para cambiar el estado.
-    // Te puedo ayudar a implementarlo cuando desees.
+    const confirmar = confirm(`¿Estás seguro de que quieres ${estadoActual ? "desactivar" : "activar"} este usuario?`);
+    if (!confirmar) return;
+  
+    try {
+      const response = await fetch(`https://vacation-tracker-juliocesarwil.replit.app/api/users/${id}/active`, {
+        method: "PATCH",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ active: !estadoActual })
+      });
+  
+      if (!response.ok) throw new Error("Error al actualizar estado");
+  
+      alert("Estado actualizado correctamente");
+      cargarUsuarios(); // recarga la tabla con los nuevos datos
+    } catch (error) {
+      console.error("Error actualizando estado del usuario:", error);
+      alert("Hubo un error al actualizar el estado");
+    }
   };
 
   cargarUsuarios();
