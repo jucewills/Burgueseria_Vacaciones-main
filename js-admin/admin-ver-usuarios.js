@@ -55,11 +55,17 @@ document.addEventListener("DOMContentLoaded", () => {
   
       if (!response.ok) throw new Error("Error al actualizar estado");
   
-      alert("Estado actualizado correctamente");
-      cargarUsuarios(); // recarga la tabla con los nuevos datos
+      const data = await response.json(); // opcional, por si deseas mostrar info del usuario
+  
+      alert(`✅ Usuario ${!estadoActual ? "activado" : "desactivado"} correctamente`);
+  
+      // Esperar medio segundo antes de recargar la tabla
+      setTimeout(() => {
+        cargarUsuarios();
+      }, 500);
     } catch (error) {
       console.error("Error actualizando estado del usuario:", error);
-      alert("Hubo un error al actualizar el estado");
+      alert("❌ Hubo un error al actualizar el estado");
     }
   };
 
